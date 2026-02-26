@@ -73,8 +73,9 @@ anxiety_score = st.radio("I feel anxious:", list(score_mapping.keys()))
 social_support_score = st.radio("I feel socially supported:", list(score_mapping.keys()))
 productivity_score = st.radio("I am productive:", list(score_mapping.keys()))
 
-# --- Submit handler ---
-if st.button("Submit for Assessment"):
+# Auto-update toggle / Submit handler
+auto_update = st.checkbox("Auto-update on change", value=True)
+if auto_update or st.button("Submit for Assessment"):
 
     input_df = pd.DataFrame({
         'age': [int(age)],
